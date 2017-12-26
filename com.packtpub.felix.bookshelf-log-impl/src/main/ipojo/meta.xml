@@ -3,13 +3,14 @@
 	xsi:schemaLocation="org.apache.felix.ipojo
 http://felix.apache.org/ipojo/schemas/CURRENT/core.xsd"
 	xmlns="org.apache.felix.ipojo">
-	<component classname="com.packtpub.felix.bookshelf.service.impl.BookshelfServiceImpl"
-		name="BookshelfServiceImpl">
+	<component classname="com.packtpub.felix.bookshelf.log.impl.BookshelfLogHelperImpl"
+		name="BookshelfLogHelperImpl">
 		<provides />
-		<requires field="inventory" />
+		
+		<requires field="log" />
 	</component>
 	
 	<instance
-		component="BookshelfServiceImpl"
-		name="bookshelf.service.impl" />
+		component="BookshelfLogHelperImpl"
+		name="bookshelf.log-helper.impl" />
 </ipojo>

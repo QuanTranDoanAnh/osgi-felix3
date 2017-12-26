@@ -23,13 +23,13 @@ import com.packtpub.felix.bookshelf.service.impl.SessionNotValidRuntimeException
 public class BookshelfServiceProxyImpl implements BookshelfServiceProxy {
 
 	@Requires
-	private BookshelfService bookshelf;
-	
-	@ServiceProperty(name="osgi.command.scope", value=SCOPE)
-	String gogoScope;
-	
-	@ServiceProperty(name="osgi.command.function", value=FUNCTIONS_STR)
-	String[] gogoFunctions;
+    private BookshelfService bookshelf;
+
+    @ServiceProperty(name = "osgi.command.scope", value=SCOPE)
+    String gogoScope;
+    
+    @ServiceProperty(name = "osgi.command.function", value=FUNCTIONS_STR)
+    String[] gogoFunctions;
 
 	public BookshelfServiceProxyImpl() {
 		

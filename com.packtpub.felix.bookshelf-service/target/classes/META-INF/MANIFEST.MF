@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1514284002481
+Build-Jdk: 1.8.0_131
+Built-By: QuanTDA1
+Bundle-Category: sample
+Bundle-Description: Bookshelf Service interfaces
+Bundle-ManifestVersion: 2
+Bundle-Name: Bookshelf Service
+Bundle-SymbolicName: com.packtpub.felix.bookshelf-service
+Bundle-Version: 1.8.0
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.packtpub.felix.bookshelf.service.api;uses:="com.pack
+ tpub.felix.bookshelf.inventory.api,com.packtpub.felix.bookshelf.service
+ .impl";version="1.8.0",com.packtpub.felix.bookshelf.service.impl;uses:=
+ "com.packtpub.felix.bookshelf.inventory.api,com.packtpub.felix.bookshel
+ f.log.api,com.packtpub.felix.bookshelf.service.api";version="1.8.0"
+Import-Package: com.packtpub.felix.bookshelf.inventory.api;version="[1.5
+ ,2)",com.packtpub.felix.bookshelf.log.api;version="[1.10,2)",com.packtp
+ ub.felix.bookshelf.service.api,com.packtpub.felix.bookshelf.service.imp
+ l
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.4.0.201707252008

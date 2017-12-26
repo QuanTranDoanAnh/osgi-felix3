@@ -13,6 +13,8 @@ import com.packtpub.felix.bookshelf.inventory.api.BookInventory.SearchCriteria;
 import com.packtpub.felix.bookshelf.inventory.api.BookNotFoundException;
 import com.packtpub.felix.bookshelf.inventory.api.InvalidBookException;
 import com.packtpub.felix.bookshelf.inventory.api.MutableBook;
+import com.packtpub.felix.bookshelf.log.api.BookshelfLogHelper;
+import com.packtpub.felix.bookshelf.log.api.LoggerConstants;
 import com.packtpub.felix.bookshelf.service.api.BookshelfService;
 import com.packtpub.felix.bookshelf.service.api.InvalidCredentialsException;
 
@@ -20,9 +22,14 @@ public class BookshelfServiceImpl implements BookshelfService {
 
 	private String sessionId;
 	private BookInventory inventory;
+	private BookshelfLogHelper logger;
 	
 	public BookshelfServiceImpl() {
 		
+	}
+	
+	public BookshelfLogHelper getLogger() {
+		return this.logger;
 	}
 	
 	@Override
@@ -61,10 +68,12 @@ public class BookshelfServiceImpl implements BookshelfService {
 	@Override
 	public void addBook(String session, String isbn, String title, String author, String category, int rating)
 			throws BookAlreadyExistsException, InvalidCredentialsException, BookInventoryNotRegisteredRuntimeException, SessionNotValidRuntimeException, InvalidBookException {
+		getLogger().debug(LoggerConstants.LOG_ADD_BOOK, isbn, title, author, category, rating);
 		checkSession(session);
         
         BookInventory inv = lookupBookInventory();
         
+        getLogger().debug(LoggerConstants.LOG_CREATE_BOOK, isbn);
         MutableBook book = inv.createBook(isbn);
         book.setTitle(title);
         book.setAuthor(author);
@@ -150,7 +159,8 @@ public class BookshelfServiceImpl implements BookshelfService {
 	}
 	
 	public MutableBook getBookForEdit(String session, String isbn) throws BookNotFoundException, SessionNotValidRuntimeException, BookInventoryNotRegisteredRuntimeException {
-        checkSession(session);
+        getLogger().debug(LoggerConstants.LOG_EDIT_BY_ISBN, isbn);
+		checkSession(session);
         BookInventory inv = lookupBookInventory();
         return inv.loadBookForEdit(isbn);
     }

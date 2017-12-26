@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.packtpub.felix</groupId>
-	<artifactId>com.packtpub.felix.bookshelf-service-tui</artifactId>
-	<version>1.8.0</version>
+	<artifactId>com.packtpub.felix.bookshelf-log-impl</artifactId>
+	<version>1.10.0</version>
 	<packaging>bundle</packaging>
 
-	<name>Bookshelf Service TUI</name>
-	<description>Bookshelf Service TUI bundle</description>
+	<name>Bookshelf Logging API Implementation</name>
+	<description>Bookshelf Logging API Implementation</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,27 +17,19 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.packtpub.felix</groupId>
-			<artifactId>com.packtpub.felix.bookshelf-service</artifactId>
-			<version>1.8.0</version>
-			<type>bundle</type>
-			<scope>compile</scope>
+			<artifactId>com.packtpub.felix.bookshelf-log-api</artifactId>
+			<version>1.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<version>4.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.core</artifactId>
 			<version>6.0.0</version>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.gogo.runtime</artifactId>
-			<version>1.0.10</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.felix/org.apache.felix.ipojo.annotations -->
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.ipojo.annotations</artifactId>
-			<version>1.8.0</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -51,7 +43,7 @@
 					<instructions>
 						<Bundle-Category>sample</Bundle-Category>
 						<Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
-						<Export-Package>com.packtpub.felix.bookshelf.service.tui</Export-Package>
+						<Export-Package>com.packtpub.felix.bookshelf.log.api</Export-Package>
 					</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
 					<prefixUrl>
@@ -60,21 +52,10 @@
 					<ignoreLock>true</ignoreLock>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-ipojo-plugin</artifactId>
-				<version>1.8.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>ipojo-bundle</goal>
-						</goals>
-						<configuration>
-							<metadata>src/main/ipojo/meta.xml</metadata>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+			<!-- <plugin> <groupId>org.apache.felix</groupId> <artifactId>maven-ipojo-plugin</artifactId> 
+				<version>1.8.0</version> <executions> <execution> <goals> <goal>ipojo-bundle</goal> 
+				</goals> <configuration> <metadata>src/main/ipojo/meta.xml</metadata> </configuration> 
+				</execution> </executions> </plugin> -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<inherited>true</inherited>
