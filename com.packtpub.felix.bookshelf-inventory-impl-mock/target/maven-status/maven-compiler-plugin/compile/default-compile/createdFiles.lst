@@ -1,0 +1,4 @@
+com\packtpub\felix\bookshelf\inventory\impl\mock\activator\BookInventoryMockImplActivator.class
+com\packtpub\felix\bookshelf\inventory\impl\mock\MutableBookImpl.class
+com\packtpub\felix\bookshelf\inventory\impl\mock\BookInventoryMockImpl$1.class
+com\packtpub\felix\bookshelf\inventory\impl\mock\BookInventoryMockImpl.class

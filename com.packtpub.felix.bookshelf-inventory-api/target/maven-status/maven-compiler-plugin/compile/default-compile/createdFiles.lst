@@ -1,0 +1,7 @@
+com\packtpub\felix\bookshelf\inventory\api\BookInventory$SearchCriteria.class
+com\packtpub\felix\bookshelf\inventory\api\BookNotFoundException.class
+com\packtpub\felix\bookshelf\inventory\api\Book.class
+com\packtpub\felix\bookshelf\inventory\api\BookInventory.class
+com\packtpub\felix\bookshelf\inventory\api\MutableBook.class
+com\packtpub\felix\bookshelf\inventory\api\InvalidBookException.class
+com\packtpub\felix\bookshelf\inventory\api\BookAlreadyExistsException.class
