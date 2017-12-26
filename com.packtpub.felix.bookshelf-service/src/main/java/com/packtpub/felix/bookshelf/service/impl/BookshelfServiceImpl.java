@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.ServiceReference;
-
 import com.packtpub.felix.bookshelf.inventory.api.Book;
 import com.packtpub.felix.bookshelf.inventory.api.BookAlreadyExistsException;
 import com.packtpub.felix.bookshelf.inventory.api.BookInventory;
@@ -22,10 +19,10 @@ import com.packtpub.felix.bookshelf.service.api.InvalidCredentialsException;
 public class BookshelfServiceImpl implements BookshelfService {
 
 	private String sessionId;
-	private BundleContext context;
+	private BookInventory inventory;
 	
-	public BookshelfServiceImpl(BundleContext context) {
-		this.context = context;
+	public BookshelfServiceImpl() {
+		
 	}
 	
 	@Override
@@ -108,12 +105,7 @@ public class BookshelfServiceImpl implements BookshelfService {
 	}
 
 	private BookInventory lookupBookInventory() throws BookInventoryNotRegisteredRuntimeException {
-		String name = BookInventory.class.getName();
-		ServiceReference<?> ref = this.context.getServiceReference(name);
-		if (ref == null) {
-			throw new BookInventoryNotRegisteredRuntimeException(name);
-		}
-		return (BookInventory) this.context.getService(ref);
+		return this.inventory;
 	}
 
 	@Override

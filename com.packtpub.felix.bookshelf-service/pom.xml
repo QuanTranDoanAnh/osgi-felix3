@@ -4,7 +4,7 @@
 
 	<groupId>com.packtpub.felix</groupId>
 	<artifactId>com.packtpub.felix.bookshelf-service</artifactId>
-	<version>1.6.1</version>
+	<version>1.7.0</version>
 	<packaging>bundle</packaging>
 
 	<name>Bookshelf Service</name>
@@ -38,18 +38,33 @@
 					<instructions>
 						<Bundle-Category>sample</Bundle-Category>
 						<Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
-						<Bundle-Activator>com.packtpub.felix.bookshelf.service.impl.activator.BookshelfServiceImplActivator</Bundle-Activator>
 						<Export-Package>
 							com.packtpub.felix.bookshelf.service.api,
 							com.packtpub.felix.bookshelf.service.impl
 						</Export-Package>
-						<Private-Package>com.packtpub.felix.bookshelf.service.impl.activator</Private-Package>
+						<!-- <Bundle-Activator>com.packtpub.felix.bookshelf.service.impl.activator.BookshelfServiceImplActivator</Bundle-Activator> 
+							<Private-Package>com.packtpub.felix.bookshelf.service.impl.activator</Private-Package> -->
 					</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
 					<prefixUrl>
 						file:///E:/osgiboxes/felix/releases
 					</prefixUrl>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-ipojo-plugin</artifactId>
+				<version>1.8.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>ipojo-bundle</goal>
+						</goals>
+						<configuration>
+							<metadata>src/main/ipojo/meta.xml</metadata>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

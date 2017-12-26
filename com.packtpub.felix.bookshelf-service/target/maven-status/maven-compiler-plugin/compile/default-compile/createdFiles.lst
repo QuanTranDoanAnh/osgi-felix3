@@ -1,7 +1,6 @@
-com\packtpub\felix\bookshelf\service\impl\activator\BookshelfServiceImplActivator.class
+com\packtpub\felix\bookshelf\service\api\Authentication.class
+com\packtpub\felix\bookshelf\service\api\InvalidCredentialsException.class
 com\packtpub\felix\bookshelf\service\impl\SessionNotValidRuntimeException.class
 com\packtpub\felix\bookshelf\service\api\BookshelfService.class
 com\packtpub\felix\bookshelf\service\impl\BookshelfServiceImpl.class
 com\packtpub\felix\bookshelf\service\impl\BookInventoryNotRegisteredRuntimeException.class
-com\packtpub\felix\bookshelf\service\api\Authentication.class
-com\packtpub\felix\bookshelf\service\api\InvalidCredentialsException.class
