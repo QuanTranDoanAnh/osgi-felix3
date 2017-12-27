@@ -4,7 +4,7 @@
 
 	<groupId>com.packtpub.felix</groupId>
 	<artifactId>com.packtpub.felix.bookshelf-service-tui</artifactId>
-	<version>1.6.0</version>
+	<version>1.9.0</version>
 	<packaging>bundle</packaging>
 
 	<name>Bookshelf Service TUI</name>
@@ -37,6 +37,11 @@
 			<artifactId>org.apache.felix.gogo.runtime</artifactId>
 			<version>1.0.10</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.ipojo.annotations</artifactId>
+			<version>1.8.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -49,15 +54,31 @@
 					<instructions>
 						<Bundle-Category>sample</Bundle-Category>
 						<Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
-						<Bundle-Activator>com.packtpub.felix.bookshelf.service.tui.activator.BookshelfTuiActivator</Bundle-Activator>
 						<Export-Package>com.packtpub.felix.bookshelf.service.tui</Export-Package>
-						<Private-Package>com.packtpub.felix.bookshelf.service.tui.activator</Private-Package>
+						<!-- <Bundle-Activator>com.packtpub.felix.bookshelf.service.tui.activator.BookshelfTuiActivator</Bundle-Activator>
+						<Private-Package>com.packtpub.felix.bookshelf.service.tui.activator</Private-Package> -->
 					</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
 					<prefixUrl>
 						file:///E:/osgiboxes/felix/releases
 					</prefixUrl>
+					<ignoreLock>true</ignoreLock>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-ipojo-plugin</artifactId>
+				<version>1.8.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>ipojo-bundle</goal>
+						</goals>
+						<configuration>
+							<metadata>src/main/ipojo/meta.xml</metadata>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
