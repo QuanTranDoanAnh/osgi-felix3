@@ -40,7 +40,7 @@
 				<configuration>
 					<instructions>
 						<Bundle-Category>sample</Bundle-Category>
-						<Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 						<Export-Package>com.packtpub.felix.bookshelf.inventory.impl.mock</Export-Package>
 						<!-- <Bundle-Activator>com.packtpub.felix.bookshelf.inventory.impl.mock.activator.BookInventoryMockImplActivator</Bundle-Activator> 
 							<Private-Package>com.packtpub.felix.bookshelf.inventory.impl.mock.activator</Private-Package> -->

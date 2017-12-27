@@ -53,7 +53,7 @@
 				<configuration>
 					<instructions>
 						<Bundle-Category>sample</Bundle-Category>
-						<Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 						<Export-Package>com.packtpub.felix.bookshelf.service.tui</Export-Package>
 						<!-- <Bundle-Activator>com.packtpub.felix.bookshelf.service.tui.activator.BookshelfTuiActivator</Bundle-Activator>
 						<Private-Package>com.packtpub.felix.bookshelf.service.tui.activator</Private-Package> -->

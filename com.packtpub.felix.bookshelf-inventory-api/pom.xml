@@ -27,7 +27,7 @@
 				<configuration>
 					<instructions>
 						<Bundle-Category>sample</Bundle-Category>
-						<Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 						<Export-Package>com.packtpub.felix.bookshelf.inventory.api</Export-Package>
 					</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
