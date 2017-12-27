@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1514224115556
+Bnd-LastModified: 1514341176038
 Build-Jdk: 1.8.0_131
 Built-By: QuanTDA1
 Bundle-Activator: com.packtpub.felix.bookshelf.service.tui.activator.Boo

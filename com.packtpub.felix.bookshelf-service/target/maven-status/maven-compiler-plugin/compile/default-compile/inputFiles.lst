@@ -1,7 +1,6 @@
-E:\osgiboxes\felix\sources\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\api\Authentication.java
-E:\osgiboxes\felix\sources\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\impl\BookInventoryNotRegisteredRuntimeException.java
-E:\osgiboxes\felix\sources\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\impl\BookshelfServiceImpl.java
-E:\osgiboxes\felix\sources\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\api\InvalidCredentialsException.java
-E:\osgiboxes\felix\sources\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\impl\activator\BookshelfServiceImplActivator.java
-E:\osgiboxes\felix\sources\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\impl\SessionNotValidRuntimeException.java
-E:\osgiboxes\felix\sources\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\api\BookshelfService.java
+E:\osgiboxes\felix\sources\osgi-felix3\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\api\Authentication.java
+E:\osgiboxes\felix\sources\osgi-felix3\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\impl\BookInventoryNotRegisteredRuntimeException.java
+E:\osgiboxes\felix\sources\osgi-felix3\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\impl\SessionNotValidRuntimeException.java
+E:\osgiboxes\felix\sources\osgi-felix3\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\api\BookshelfService.java
+E:\osgiboxes\felix\sources\osgi-felix3\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\impl\BookshelfServiceImpl.java
+E:\osgiboxes\felix\sources\osgi-felix3\com.packtpub.felix.bookshelf-service\src\main\java\com\packtpub\felix\bookshelf\service\api\InvalidCredentialsException.java
