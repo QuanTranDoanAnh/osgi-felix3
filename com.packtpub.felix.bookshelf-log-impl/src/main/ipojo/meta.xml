@@ -8,7 +8,7 @@ http://felix.apache.org/ipojo/schemas/CURRENT/core.xsd"
 		name="BookshelfLogHelperImpl">
 		<provides />
 		
-		<requires field="log" />
+		<requires field="log" optional="true" nullable="false" />
 	</component>
 	
 	<instance

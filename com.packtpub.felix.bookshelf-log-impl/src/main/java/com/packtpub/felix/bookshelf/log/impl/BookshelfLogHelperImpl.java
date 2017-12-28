@@ -13,6 +13,8 @@ public class BookshelfLogHelperImpl implements BookshelfLogHelper {
 	@Override
 	public void debug(String pattern, Object... args) {
 		String message = MessageFormat.format(pattern, args);
+		System.out.println("Trying to log:" + message);
+		System.out.println("Logger:" + this.log);
 		this.log.log(LogService.LOG_DEBUG, message);
 
 	}

@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>com.packtpub.felix</groupId>
 			<artifactId>com.packtpub.felix.bookshelf-service</artifactId>
-			<version>1.5.0</version>
+			<version>1.10.0</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -61,7 +61,7 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-ipojo-plugin</artifactId>
-				<version>1.8.0</version>
+				<version>1.12.1</version>
 				<executions>
 					<execution>
 						<goals>

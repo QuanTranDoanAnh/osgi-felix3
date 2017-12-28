@@ -32,8 +32,10 @@ public class BookshelfServiceImpl implements BookshelfService {
 
 	@Override
 	public String login(String username, char[] password) throws InvalidCredentialsException {
+		getLogger().info(LoggerConstants.LOG_LOGIN_ATTEMPT, username);
 		if ("admin".equals(username) && Arrays.equals(password, "admin".toCharArray())) {
 			this.sessionId = Long.toString(System.currentTimeMillis());
+			getLogger().info(LoggerConstants.LOG_LOGIN_SUCCESS, username, sessionId);
 			return this.sessionId;
 		}
 		throw new InvalidCredentialsException(username);
@@ -41,6 +43,7 @@ public class BookshelfServiceImpl implements BookshelfService {
 
 	@Override
 	public void logout(String sessionId) throws SessionNotValidRuntimeException {
+		getLogger().info(LoggerConstants.LOG_LOGOUT_SESSION, sessionId);
 		checkSession(sessionId);
 		this.sessionId = null;
 	}
@@ -59,6 +62,7 @@ public class BookshelfServiceImpl implements BookshelfService {
 	@Override
 	public Set<String> getCategories(String sessionId)
 			throws BookInventoryNotRegisteredRuntimeException, SessionNotValidRuntimeException {
+		getLogger().info(LoggerConstants.LOG_GET_CATEGORIES);
 		checkSession(sessionId);
 		BookInventory bookInventory = lookupBookInventory();
 		return bookInventory.getCategories();
@@ -68,19 +72,20 @@ public class BookshelfServiceImpl implements BookshelfService {
 	public void addBook(String session, String isbn, String title, String author, String category, int rating)
 			throws BookAlreadyExistsException, InvalidCredentialsException, BookInventoryNotRegisteredRuntimeException,
 			SessionNotValidRuntimeException, InvalidBookException {
-		getLogger().debug(LoggerConstants.LOG_ADD_BOOK, isbn, title, author, category, rating);
+		System.out.println("Adding a book;");
+		getLogger().info(LoggerConstants.LOG_ADD_BOOK, isbn, title, author, category, rating);
 		checkSession(session);
 
 		BookInventory inv = lookupBookInventory();
 
-		getLogger().debug(LoggerConstants.LOG_CREATE_BOOK, isbn);
+		getLogger().info(LoggerConstants.LOG_CREATE_BOOK, isbn);
 		MutableBook book = inv.createBook(isbn);
 		book.setTitle(title);
 		book.setAuthor(author);
 		book.setCategory(category);
 		book.setRating(rating);
 
-		getLogger().debug(LoggerConstants.LOG_STORE_BOOK, isbn);
+		getLogger().info(LoggerConstants.LOG_STORE_BOOK, isbn);
 		inv.storeBook(book);
 
 	}
@@ -89,6 +94,7 @@ public class BookshelfServiceImpl implements BookshelfService {
 	public void modifyBookCategory(String session, String isbn, String category)
 			throws BookNotFoundException, InvalidCredentialsException, SessionNotValidRuntimeException,
 			BookInventoryNotRegisteredRuntimeException, InvalidBookException {
+		getLogger().info(LoggerConstants.LOG_MODIFY_CATEGORY, isbn, category);
 		checkSession(session);
 
 		BookInventory inv = lookupBookInventory();
@@ -103,6 +109,7 @@ public class BookshelfServiceImpl implements BookshelfService {
 	@Override
 	public void removeBook(String session, String isbn)
 			throws BookNotFoundException, SessionNotValidRuntimeException, BookInventoryNotRegisteredRuntimeException {
+		getLogger().info(LoggerConstants.LOG_REMOVE_BOOK, isbn);
 		checkSession(session);
 		BookInventory inv = lookupBookInventory();
 		inv.removeBook(isbn);
@@ -112,6 +119,7 @@ public class BookshelfServiceImpl implements BookshelfService {
 	@Override
 	public Book getBook(String sessionId, String isbn)
 			throws BookNotFoundException, SessionNotValidRuntimeException, BookInventoryNotRegisteredRuntimeException {
+		getLogger().info(LoggerConstants.LOG_GET_BY_ISBN, isbn);
 		checkSession(sessionId);
 		BookInventory bookInventory = lookupBookInventory();
 		return bookInventory.loadBook(isbn);
@@ -124,6 +132,7 @@ public class BookshelfServiceImpl implements BookshelfService {
 	@Override
 	public Set<String> searchBooksByCategory(String sessionId, String categoryLike)
 			throws BookNotFoundException, SessionNotValidRuntimeException, BookInventoryNotRegisteredRuntimeException {
+		getLogger().info(LoggerConstants.LOG_SEARCH_BY_CATEGORY, categoryLike);
 		checkSession(sessionId);
 		BookInventory inv = lookupBookInventory();
 		Map<SearchCriteria, String> crits = new HashMap<SearchCriteria, String>();
@@ -134,6 +143,7 @@ public class BookshelfServiceImpl implements BookshelfService {
 	@Override
 	public Set<String> searchBooksByAuthor(String sessionId, String authorLike)
 			throws BookNotFoundException, SessionNotValidRuntimeException, BookInventoryNotRegisteredRuntimeException {
+		getLogger().info(LoggerConstants.LOG_SEARCH_BY_AUTHOR, authorLike);
 		checkSession(sessionId);
 		BookInventory inv = lookupBookInventory();
 		Map<SearchCriteria, String> crits = new HashMap<SearchCriteria, String>();
@@ -144,6 +154,7 @@ public class BookshelfServiceImpl implements BookshelfService {
 	@Override
 	public Set<String> searchBooksByTitle(String sessionId, String titleLike)
 			throws BookNotFoundException, SessionNotValidRuntimeException, BookInventoryNotRegisteredRuntimeException {
+		getLogger().info(LoggerConstants.LOG_SEARCH_BY_TITLE, titleLike);
 		checkSession(sessionId);
 		BookInventory inv = lookupBookInventory();
 		Map<SearchCriteria, String> crits = new HashMap<SearchCriteria, String>();
@@ -154,6 +165,7 @@ public class BookshelfServiceImpl implements BookshelfService {
 	@Override
 	public Set<String> searchBooksByRating(String sessionId, int ratingLower, int ratingUpper)
 			throws BookNotFoundException, SessionNotValidRuntimeException, BookInventoryNotRegisteredRuntimeException {
+		getLogger().info(LoggerConstants.LOG_SEARCH_BY_RATING, ratingLower, ratingUpper);
 		checkSession(sessionId);
 		BookInventory inv = lookupBookInventory();
 		Map<SearchCriteria, String> crits = new HashMap<SearchCriteria, String>();
@@ -164,7 +176,7 @@ public class BookshelfServiceImpl implements BookshelfService {
 
 	public MutableBook getBookForEdit(String session, String isbn)
 			throws BookNotFoundException, SessionNotValidRuntimeException, BookInventoryNotRegisteredRuntimeException {
-		getLogger().debug(LoggerConstants.LOG_EDIT_BY_ISBN, isbn);
+		getLogger().info(LoggerConstants.LOG_EDIT_BY_ISBN, isbn);
 		checkSession(session);
 		BookInventory inv = lookupBookInventory();
 		return inv.loadBookForEdit(isbn);

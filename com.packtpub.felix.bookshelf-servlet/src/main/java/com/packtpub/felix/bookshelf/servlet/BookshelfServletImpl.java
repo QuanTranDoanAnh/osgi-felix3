@@ -234,7 +234,7 @@ public class BookshelfServletImpl extends HttpServlet {
 
 		printWriter.println("<form method=\"get\" action=\"" + searchByAuthorUrl(null) + "\">");
 
-		printWriter.println("<input type=\"hidden\" name=\"" + PARAM_OP + "\" value=\"" + OP_BYAUTHOR + "\"");
+		printWriter.println("<input type=\"hidden\" name=\"" + PARAM_OP + "\" value=\"" + OP_BYAUTHOR + "\">");
 		printWriter.println("<input type=\"text\" name=\"" + PARAM_AUTHOR + "\"");
 		if (author != null) {
 			printWriter.println(" value=\"" + author + "\"");
