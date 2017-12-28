@@ -1,14 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.packtpub.felix</groupId>
-	<artifactId>com.packtpub.felix.bookshelf-service-tui</artifactId>
+	<artifactId>com.packtpub.felix.bookshelf-log-impl</artifactId>
 	<version>1.10.0</version>
 	<packaging>bundle</packaging>
-
-	<name>Bookshelf Service TUI</name>
-	<description>Bookshelf Service TUI bundle</description>
+	<name>Bookshelf Log Helper API Impl</name>
+	<description>Bookshelf Log Helper API Impl bundle</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,15 +15,10 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.packtpub.felix</groupId>
-			<artifactId>com.packtpub.felix.bookshelf-service</artifactId>
+			<artifactId>com.packtpub.felix.bookshelf-log-api</artifactId>
 			<version>1.10.0</version>
-			<scope>compile</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.packtpub.felix</groupId>
-			<artifactId>com.packtpub.felix.bookshelf-inventory-api</artifactId>
-			<version>1.5.0</version>
-		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.osgi/org.osgi.core -->
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.core</artifactId>
@@ -33,16 +26,12 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.gogo.runtime</artifactId>
-			<version>1.0.10</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.ipojo.annotations</artifactId>
-			<version>1.12.1</version>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<version>5.0.0</version>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -54,7 +43,7 @@
 					<instructions>
 						<Bundle-Category>sample</Bundle-Category>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-						<Export-Package>com.packtpub.felix.bookshelf.service.tui</Export-Package>
+						<Export-Package>com.packtpub.felix.bookshelf.log.impl</Export-Package>
 					</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
 					<prefixUrl>

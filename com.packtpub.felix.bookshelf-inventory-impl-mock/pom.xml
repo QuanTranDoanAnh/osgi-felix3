@@ -4,7 +4,7 @@
 
 	<groupId>com.packtpub.felix</groupId>
 	<artifactId>com.packtpub.felix.bookshelf-inventory-impl-mock</artifactId>
-	<version>1.9.0</version>
+	<version>1.9.1</version>
 	<packaging>bundle</packaging>
 
 	<name>Bookshelf Inventory Impl - Mock</name>
@@ -54,7 +54,7 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-ipojo-plugin</artifactId>
-				<version>1.8.0</version>
+				<version>1.12.1</version>
 				<executions>
 					<execution>
 						<goals>
